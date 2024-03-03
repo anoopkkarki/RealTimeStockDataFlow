@@ -5,7 +5,7 @@ import pandas as pd
 
 
 try:
-    producer = KafkaProducer(bootstrap_servers=['192.168.0.160:9092'],
+    producer = KafkaProducer(bootstrap_servers=['192.168.0.160:9092'],#update the ip address of your VM and port 
                              value_serializer=lambda x: dumps(x).encode('utf-8'))
     df = pd.read_csv('C:\\Users\\Fission\\OneDrive\\Documents\\vs\\data engineer\\Stock-Market-Real-Time-Data-Pipeline-with-Apache-Kafka-and-Cassandra-main\\Stock-Market-Real-Time-Data-Pipeline-with-Apache-Kafka-and-Cassandra-main\\stockData.csv')
 except Exception as e:
