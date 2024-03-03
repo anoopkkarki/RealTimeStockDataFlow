@@ -5,7 +5,7 @@ from json import loads, dumps
 
 try:
     consumer = KafkaConsumer('mytopic1',
-                             bootstrap_servers=['192.168.0.160:9092'],
+                             bootstrap_servers=['192.168.0.160:9092'], #update the ip address of your VM and port 
                              value_deserializer=lambda x: loads(x.decode('utf-8')))
 except Exception as e:
     print("An error occurred while initializing the Kafka consumer:", e)
@@ -13,7 +13,7 @@ except Exception as e:
 
 
 try:
-    cluster = Cluster(['192.168.0.160'], port=9042)
+    cluster = Cluster(['192.168.0.160'], port=9042)#Here in my case 9042 port is open for cassandra
     session = cluster.connect()
     session.execute(
         "CREATE KEYSPACE IF NOT EXISTS stockmarket WITH replication = {'class':'SimpleStrategy', 'replication_factor':1};")
